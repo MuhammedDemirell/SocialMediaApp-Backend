@@ -28,6 +28,4 @@ public class Like {
     private Comment comment;
 
 
-
-
 }

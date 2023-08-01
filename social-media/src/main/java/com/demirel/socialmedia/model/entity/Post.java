@@ -29,7 +29,7 @@ public class Post {
     private String title;
 
     @Lob
-    @Column(columnDefinition="text" , nullable = false)
+    @Column(columnDefinition = "text", nullable = false)
     private String text;
 
     @Column(nullable = false)

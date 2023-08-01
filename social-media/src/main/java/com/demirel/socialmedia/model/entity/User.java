@@ -11,27 +11,27 @@ import java.util.List;
 @Getter
 @Setter
 public class User {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        @Column(length = 25, nullable = false)
-        private String userName;
+    @Column(length = 25, nullable = false)
+    private String userName;
 
-        @Column(length = 25, nullable = false)
-        private String password;
+    @Column(length = 25, nullable = false)
+    private String password;
 
-        @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-        private List<Post> posts;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Post> posts;
 
-        @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-        private List<Like> likes;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Like> likes;
 
-        @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-        private List<Comment> comments;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Comment> comments;
 
-        @Column(nullable = false)
-        private int avatar;
+    @Column(nullable = false)
+    private int avatar;
 
 }
 
