@@ -1,53 +1,37 @@
 package com.demirel.socialmedia.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.List;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
-@Table(name = "product")
+@Table(name = "users")
+@Getter
+@Setter
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(length = 25, nullable = false)
+    private String userName;
 
+    @Column(length = 25, nullable = false)
+    private String password;
 
-        @Id
-        @Column(name = "product_id")
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long productId;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Post> posts;
 
-        @Column(name = "product_name")
-        private String productName;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Like> likes;
 
-        @Column(name = "quantity")
-        private int quantity;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Comment> comments;
 
-        @Column(name = "price")
-        private double price;
+    @Column(nullable = false)
+    private int avatar;
 
-        @Builder.Default
-        @Column(name = "product_updated_date")
-        @Temporal(TemporalType.TIMESTAMP)
-        @JsonFormat(pattern = "yyyy-MM-dd")
-        private Date productUpdatedDate = new Date();
-
-        @Builder.Default
-        @Column(name = "product_created_date")
-        @Temporal(TemporalType.TIMESTAMP)
-        @JsonFormat(pattern = "yyyy-MM-dd")
-        private Date productCreatedDate = new Date();
-
-        @Column(name = "is_deleted")
-        private boolean deleted;
-
-
-    }
+}
 
