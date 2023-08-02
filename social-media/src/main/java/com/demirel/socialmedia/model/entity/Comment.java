@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "comments")
@@ -29,7 +30,7 @@ public class Comment {
     private String text;
 
     @OneToMany(mappedBy = "comment", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    private List<Like> likes;
+    private Set<Like> likes;
 
 
 }

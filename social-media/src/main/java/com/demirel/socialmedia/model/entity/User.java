@@ -3,7 +3,9 @@ package com.demirel.socialmedia.model.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -22,13 +24,13 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    private List<Post> posts;
+    private Set<Post> posts;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    private List<Like> likes;
+    private Set<Like> likes;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    private List<Comment> comments;
+    private Set<Comment> comments;
 
     @Column(nullable = false)
     private int avatar;
