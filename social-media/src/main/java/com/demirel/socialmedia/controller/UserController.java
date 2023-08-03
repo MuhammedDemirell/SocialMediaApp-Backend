@@ -1,11 +1,13 @@
 package com.demirel.socialmedia.controller;
 
+import com.demirel.socialmedia.model.dto.UserDto;
 import com.demirel.socialmedia.model.entity.User;
 import com.demirel.socialmedia.repository.UserRepository;
 import com.demirel.socialmedia.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +19,9 @@ public class UserController {
     private final UserRepository userRepository;
     private final UserService userService;
 
+
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
     }
 
