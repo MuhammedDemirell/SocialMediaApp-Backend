@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 
 
@@ -26,13 +27,13 @@ public class User {
     @Column(length = 25, nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = REMOVE, fetch = LAZY)
+    @OneToMany(mappedBy = "user", cascade = REMOVE, fetch = EAGER)
     private Set<Post> posts;
 
-    @OneToMany(mappedBy = "user", cascade = REMOVE, fetch = LAZY)
+    @OneToMany(mappedBy = "user", cascade = REMOVE, fetch = EAGER)
     private Set<Like> likes;
 
-    @OneToMany(mappedBy = "user", cascade = REMOVE, fetch = LAZY)
+    @OneToMany(mappedBy = "user", cascade = REMOVE, fetch = EAGER)
     private Set<Comment> comments;
 
     @Column(nullable = false)

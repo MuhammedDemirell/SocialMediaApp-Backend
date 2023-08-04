@@ -12,6 +12,7 @@ import java.util.Set;
 
 import static com.demirel.socialmedia.util.CommonConstants.SYSTEM.ZONE_ID;
 import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
@@ -31,17 +32,16 @@ public class Post {
     @Column(length = 250, nullable = false)
     private String title;
 
-    @Lob
-    @Column(columnDefinition = "text", nullable = false)
+    @Column(columnDefinition = "text", nullable = false , length = 10000)
     private String text;
 
     @Column(nullable = false)
     private final LocalDateTime createdDate = LocalDateTime.now(ZONE_ID);
 
-    @OneToMany(mappedBy = "post", cascade = REMOVE, fetch = LAZY)
+    @OneToMany(mappedBy = "post", cascade = REMOVE, fetch = EAGER)
     private Set<Like> likes;
 
-    @OneToMany(mappedBy = "post", cascade = REMOVE, fetch = LAZY)
+    @OneToMany(mappedBy = "post", cascade = REMOVE, fetch = EAGER)
     private Set<Comment> comments;
 
     @Override

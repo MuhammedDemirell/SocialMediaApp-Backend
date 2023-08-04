@@ -20,6 +20,6 @@ public class CommentDto {
 
     private Long commentId;
 
-    private Set<Like> likes;
+    private Set<LikeDto> likes;
 
 }

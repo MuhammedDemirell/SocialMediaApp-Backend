@@ -20,10 +20,10 @@ public class UserDto {
 
     private int avatar;
 
-    private Set<Post> posts;
+    private Set<PostDto> posts;
 
-    private Set<Like> likes;
+    private Set<LikeDto> likes;
 
-    private Set<Comment> comments;
+    private Set<CommentDto> comments;
 
 }

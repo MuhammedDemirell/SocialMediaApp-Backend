@@ -18,9 +18,9 @@ public class PostDto {
 
     private Long userId;
 
-    private Set<Like> likes;
+    private Set<LikeDto> likes;
 
-    private Set<Comment> comments;
+    private Set<CommentDto> comments;
 
     private LocalDateTime createdDate;
 
