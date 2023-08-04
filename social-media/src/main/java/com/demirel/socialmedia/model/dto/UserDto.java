@@ -3,13 +3,17 @@ package com.demirel.socialmedia.model.dto;
 import com.demirel.socialmedia.model.entity.Comment;
 import com.demirel.socialmedia.model.entity.Like;
 import com.demirel.socialmedia.model.entity.Post;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDto {
 
     private Long id;

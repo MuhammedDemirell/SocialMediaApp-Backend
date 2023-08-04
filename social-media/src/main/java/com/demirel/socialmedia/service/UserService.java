@@ -18,7 +18,8 @@ public class UserService {
 
     public List<UserDto> getAllUsers() {
         List<User> userList = userRepository.findAll();
-        return userList.stream().map(userMapper::toUserDto).toList();
+        List<UserDto> list = userList.stream().map(userMapper::toUserDto).toList();
+        return list;
     }
 
     public User saveOneUser(User newUser) {
