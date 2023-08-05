@@ -2,15 +2,14 @@ package com.demirel.socialmedia.model.mapper;
 
 
 import com.demirel.socialmedia.model.dto.CommentDto;
-import com.demirel.socialmedia.model.dto.LikeDto;
+
 import com.demirel.socialmedia.model.entity.Comment;
-import com.demirel.socialmedia.model.entity.Like;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.stereotype.Component;
 
-@Mapper(implementationName = "CommentMapperImpl", componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE , uses = {PostMapper.class,UserMapper.class,CommentMapper.class,LikeMapper.class})
+@Mapper(implementationName = "CommentMapperImpl", componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, uses = {PostMapper.class, UserMapper.class, CommentMapper.class, LikeMapper.class})
 @Component
 public interface CommentMapper {
 
@@ -22,5 +21,5 @@ public interface CommentMapper {
     CommentDto toCommentDto(Comment comment);
 
 
-    }
+}
 

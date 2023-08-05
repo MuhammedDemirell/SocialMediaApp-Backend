@@ -15,6 +15,8 @@ public class LikeDto {
 
     private Long postId;
 
+    private Long likeCount;
+
     private Long userId;
 
     private Long commentId;
