@@ -3,11 +3,13 @@ package com.demirel.socialmedia.service;
 import com.demirel.socialmedia.model.dto.UserDto;
 import com.demirel.socialmedia.model.entity.User;
 import com.demirel.socialmedia.model.mapper.UserMapper;
+import com.demirel.socialmedia.model.request.CreateUserRequest;
+import com.demirel.socialmedia.model.request.UpdateUserRequest;
 import com.demirel.socialmedia.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -22,20 +24,27 @@ public class UserService {
         return list;
     }
 
-    public User saveOneUser(User newUser) {
-        return userRepository.save(newUser);
+    public ResponseEntity<CreateUserRequest> createUser(CreateUserRequest createUserRequest) {
+        User user = userMapper.toUserCreate(createUserRequest);
+        userRepository.save(user);
+        return ResponseEntity.ok().body(createUserRequest);
+
     }
 
     public User getOneUser(Long userId) {
         return userRepository.findById(userId).orElseThrow();
     }
 
-    public User updateOneUser(Long userId, User newUser) {
+    public UpdateUserRequest updateOneUser(Long userId, UpdateUserRequest updateUserRequest ) {
+
         User user = userRepository.findById(userId).orElseThrow();
-        user.setUserName(newUser.getUserName());
-        user.setPassword(newUser.getPassword());
-        user.setAvatar(newUser.getAvatar());
-        return userRepository.save(user);
+
+        user.setUserName(user.getUserName());
+        user.setPassword(user.getPassword());
+        user.setAvatar(user.getAvatar());
+        userMapper.toUserUpdate(updateUserRequest, user);
+        userRepository.save(user);
+        return updateUserRequest;
 
 
     }

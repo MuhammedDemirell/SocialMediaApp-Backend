@@ -2,9 +2,12 @@ package com.demirel.socialmedia.controller;
 
 import com.demirel.socialmedia.model.dto.UserDto;
 import com.demirel.socialmedia.model.entity.User;
+import com.demirel.socialmedia.model.request.CreateUserRequest;
+import com.demirel.socialmedia.model.request.UpdateUserRequest;
 import com.demirel.socialmedia.repository.UserRepository;
 import com.demirel.socialmedia.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -26,8 +29,8 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User newUser) {
-        return userService.saveOneUser(newUser);
+    public ResponseEntity<CreateUserRequest> createUser(@RequestBody CreateUserRequest createUserRequest) {
+        return userService.createUser(createUserRequest);
     }
 
     @GetMapping("/{userId}")
@@ -36,8 +39,8 @@ public class UserController {
     }
 
     @PutMapping("/{userId}")
-    public User updateUser(@PathVariable Long userId, @RequestBody User newUser) {
-        return userService.updateOneUser(userId, newUser);
+    public UpdateUserRequest updateUser(@PathVariable Long userId, @RequestBody UpdateUserRequest updateUserRequest) {
+        return userService.updateOneUser(userId, updateUserRequest);
     }
 
     @DeleteMapping("/{userId}")
