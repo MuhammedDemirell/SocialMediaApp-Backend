@@ -1,11 +1,11 @@
 package com.demirel.socialmedia.service;
 
 import com.demirel.socialmedia.model.dto.PostDto;
-import com.demirel.socialmedia.model.dto.UserDto;
 import com.demirel.socialmedia.model.entity.Post;
 import com.demirel.socialmedia.model.entity.User;
+import com.demirel.socialmedia.model.exception.BusinessValidationException;
+import com.demirel.socialmedia.model.exception.BusinessValidationRule;
 import com.demirel.socialmedia.model.mapper.PostMapper;
-import com.demirel.socialmedia.model.mapper.UserMapper;
 import com.demirel.socialmedia.model.request.CreatePostRequest;
 import com.demirel.socialmedia.model.request.UpdatePostRequest;
 import com.demirel.socialmedia.repository.PostRepository;
@@ -13,7 +13,6 @@ import com.demirel.socialmedia.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +43,7 @@ public class PostService {
 
     public CreatePostRequest createPost(CreatePostRequest createPostRequest) {
         User user = userRepository.findById(createPostRequest.getUserId())
-                .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + createPostRequest.getUserId()));
+                .orElseThrow(() -> new BusinessValidationException(BusinessValidationRule.USER_NOT_FOUND));
 
         Post post = postMapper.toPostCreate(createPostRequest);
         post.setUser(user);
@@ -53,6 +52,7 @@ public class PostService {
 
         return createPostRequest;
     }
+
 
     public UpdatePostRequest updatePost(Long postId ,UpdatePostRequest updatePostRequest) {
 
