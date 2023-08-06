@@ -1,30 +1,53 @@
 package com.demirel.socialmedia.controller;
 
 import com.demirel.socialmedia.model.dto.PostDto;
-import com.demirel.socialmedia.model.dto.UserDto;
+
 import com.demirel.socialmedia.model.entity.Post;
+import com.demirel.socialmedia.model.entity.User;
+import com.demirel.socialmedia.model.request.CreatePostRequest;
+import com.demirel.socialmedia.model.request.UpdatePostRequest;
 import com.demirel.socialmedia.repository.PostRepository;
-import com.demirel.socialmedia.repository.UserRepository;
 import com.demirel.socialmedia.service.PostService;
-import com.demirel.socialmedia.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/posts")
 public class PostController {
 
-    private final PostRepository repository;
     private final PostService postService;
 
 
     @GetMapping
-    public List<PostDto> getAllUsers() {
-        return postService.getAllPosts();
+    public List<PostDto> getAllPosts(@RequestParam Optional<Long> userId) {
+        return postService.getAllPosts(userId);
     }
+
+    @GetMapping("/{postId}")
+    public List<PostDto> getPostById(@PathVariable Long postId) {
+        return postService.getOnePost(postId);
+
+    }
+
+    @PostMapping
+    public CreatePostRequest createPost(@RequestBody CreatePostRequest createPostRequest) {
+        return postService.createPost(createPostRequest);
+    }
+
+    @PutMapping("/{postId}")
+    public UpdatePostRequest updatePost(@PathVariable Long postId, @RequestBody UpdatePostRequest updatePostRequest) {
+        return postService.updatePost(postId, updatePostRequest);
+    }
+
+    @DeleteMapping("/{postId}")
+    public ResponseEntity<Void> deletePost(@PathVariable Long postId) {
+        postService.deletePostById(postId);
+        return ResponseEntity.ok().build();
+    }
+
 }
