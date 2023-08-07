@@ -1,8 +1,7 @@
 package com.demirel.socialmedia.model.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,8 +11,9 @@ import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "p_likes")
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

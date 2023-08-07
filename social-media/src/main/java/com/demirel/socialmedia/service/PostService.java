@@ -38,7 +38,7 @@ public class PostService {
         }
     }
 
-    public PostDto  getOnePost(Long postId) {
+    public PostDto getOnePost(Long postId) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new BusinessValidationException(BusinessValidationRule.POST_NOT_FOUND));
 
         return postMapper.toPostDto(post);

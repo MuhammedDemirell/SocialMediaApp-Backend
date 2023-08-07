@@ -1,13 +1,9 @@
 package com.demirel.socialmedia.service;
 
 import com.demirel.socialmedia.model.dto.CommentDto;
-import com.demirel.socialmedia.model.dto.PostDto;
-import com.demirel.socialmedia.model.dto.UserDto;
 import com.demirel.socialmedia.model.entity.Comment;
 import com.demirel.socialmedia.model.entity.Post;
 import com.demirel.socialmedia.model.entity.User;
-//import com.demirel.socialmedia.model.exception.BusinessValidationException;
-//import com.demirel.socialmedia.model.exception.BusinessValidationRule;
 import com.demirel.socialmedia.model.exception.BusinessValidationException;
 import com.demirel.socialmedia.model.exception.BusinessValidationRule;
 import com.demirel.socialmedia.model.mapper.CommentMapper;
@@ -20,17 +16,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class CommentService {
 
     private final CommentRepository commentRepository;
-    private final UserService userService;
 
     private final CommentMapper commentMapper;
-    private final PostService postService;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
 

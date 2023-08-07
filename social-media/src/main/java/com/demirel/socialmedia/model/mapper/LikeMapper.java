@@ -3,6 +3,7 @@ package com.demirel.socialmedia.model.mapper;
 
 import com.demirel.socialmedia.model.dto.LikeDto;
 import com.demirel.socialmedia.model.entity.Like;
+import com.demirel.socialmedia.model.request.CreateLikeRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
@@ -20,5 +21,6 @@ public interface LikeMapper {
     LikeDto toLikeDto(Like like);
 
 
-    }
+    Like toLikeCreate(CreateLikeRequest createLikeRequest);
+}
 

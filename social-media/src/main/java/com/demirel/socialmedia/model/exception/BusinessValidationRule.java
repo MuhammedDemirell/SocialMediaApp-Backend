@@ -11,7 +11,10 @@ public enum BusinessValidationRule implements IBusinessValidationRule {
 
     USER_NOT_FOUND("0001", "Kullanıcı Bulunmadı!"),
     USER_AND_POST_NOT_FOUND("0002", "Kullanıcı veya Post Bulunmadı!"),
-    POST_NOT_FOUND("0003", "Post Bulunmadı!");
+    POST_NOT_FOUND("0003", "Post Bulunmadı!"),
+    LIKE_NOT_DELETED("0004", "Like Silinemedi!"),
+    LIKE_NOT_FOUND("0005", "Like Bulunamadı!"),
+    LIKE_NOT_CREATED("0006", "Like Oluşturulamadı!");
 
     private String code = DEFAULT_CODE;
     private final String message;
