@@ -1,6 +1,7 @@
 package com.demirel.socialmedia.service;
 
 import com.demirel.socialmedia.model.dto.PostDto;
+import com.demirel.socialmedia.model.dto.UserDto;
 import com.demirel.socialmedia.model.entity.Post;
 import com.demirel.socialmedia.model.entity.User;
 import com.demirel.socialmedia.model.exception.BusinessValidationException;
@@ -27,18 +28,20 @@ public class PostService {
     public List<PostDto> getAllPosts(Optional<Long> userId) {
         if (userId.isPresent()) {
             List<Post> postList = postRepository.findByUserId(userId.get());
+
             return postList.stream().map(postMapper::toPostDto).toList();
 
         } else {
             List<Post> postList = postRepository.findAll();
+
             return postList.stream().map(postMapper::toPostDto).toList();
         }
     }
 
-    public List<PostDto> getOnePost(Long postId) {
-        List<Post> post = postRepository.findById(postId).stream().toList();
-        return post.stream().map(postMapper::toPostDto).toList();
+    public PostDto  getOnePost(Long postId) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new BusinessValidationException(BusinessValidationRule.POST_NOT_FOUND));
 
+        return postMapper.toPostDto(post);
     }
 
     public CreatePostRequest createPost(CreatePostRequest createPostRequest) {
@@ -53,8 +56,7 @@ public class PostService {
         return createPostRequest;
     }
 
-
-    public UpdatePostRequest updatePost(Long postId ,UpdatePostRequest updatePostRequest) {
+    public UpdatePostRequest updatePost(Long postId, UpdatePostRequest updatePostRequest) {
 
         Post post = postRepository.findById(postId).orElseThrow();
 
@@ -69,6 +71,7 @@ public class PostService {
 
     public ResponseEntity<Void> deletePostById(Long postId) {
         postRepository.deleteById(postId);
+
         return ResponseEntity.ok().build();
     }
 }

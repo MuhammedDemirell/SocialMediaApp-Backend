@@ -10,7 +10,7 @@ public class CreatePostRequest {
 
     private Long id;
 
-    private  Long userId;
+    private Long userId;
 
     private String title;
 

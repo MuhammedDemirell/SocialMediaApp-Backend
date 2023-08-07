@@ -21,21 +21,29 @@ public class UserService {
     public List<UserDto> getAllUsers() {
         List<User> userList = userRepository.findAll();
         List<UserDto> list = userList.stream().map(userMapper::toUserDto).toList();
+
         return list;
     }
 
     public ResponseEntity<CreateUserRequest> createUser(CreateUserRequest createUserRequest) {
         User user = userMapper.toUserCreate(createUserRequest);
         userRepository.save(user);
+
         return ResponseEntity.ok().body(createUserRequest);
 
     }
 
-    public User getOneUser(Long userId) {
-        return userRepository.findById(userId).orElseThrow();
+
+
+    public UserDto  getOneUser(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow();
+
+        return  userMapper.toUserDto(user);
+
+
     }
 
-    public UpdateUserRequest updateOneUser(Long userId, UpdateUserRequest updateUserRequest ) {
+    public UpdateUserRequest updateOneUser(Long userId, UpdateUserRequest updateUserRequest) {
 
         User user = userRepository.findById(userId).orElseThrow();
 
@@ -44,12 +52,14 @@ public class UserService {
         user.setAvatar(user.getAvatar());
         userMapper.toUserUpdate(updateUserRequest, user);
         userRepository.save(user);
+
         return updateUserRequest;
 
 
     }
 
     public void deleteById(Long userId) {
+
         userRepository.deleteById(userId);
     }
 }

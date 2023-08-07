@@ -29,7 +29,7 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public List<PostDto> getPostById(@PathVariable Long postId) {
+    public PostDto getPostById(@PathVariable Long postId) {
         return postService.getOnePost(postId);
 
     }

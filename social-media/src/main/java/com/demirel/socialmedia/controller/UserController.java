@@ -22,7 +22,6 @@ public class UserController {
     private final UserService userService;
 
 
-
     @GetMapping
     public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
@@ -34,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public User getUserById(@PathVariable Long userId) {
+    public UserDto getUserById(@PathVariable Long userId) {
         return userService.getOneUser(userId);
     }
 

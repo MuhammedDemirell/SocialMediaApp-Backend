@@ -9,7 +9,9 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 @Getter
 public enum BusinessValidationRule implements IBusinessValidationRule {
 
-    USER_NOT_FOUND("0001", "Kullanıcı Bulunmadı!");
+    USER_NOT_FOUND("0001", "Kullanıcı Bulunmadı!"),
+    USER_AND_POST_NOT_FOUND("0002", "Kullanıcı veya Post Bulunmadı!"),
+    POST_NOT_FOUND("0003", "Post Bulunmadı!");
 
     private String code = DEFAULT_CODE;
     private final String message;
