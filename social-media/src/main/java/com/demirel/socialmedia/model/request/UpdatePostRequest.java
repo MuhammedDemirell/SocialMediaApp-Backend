@@ -2,7 +2,6 @@ package com.demirel.socialmedia.model.request;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor

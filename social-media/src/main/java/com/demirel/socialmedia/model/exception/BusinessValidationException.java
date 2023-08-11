@@ -11,10 +11,8 @@ public class BusinessValidationException extends RuntimeException {
         super(validationRule.getMessage());
         this.validationRule = validationRule;
     }
-
     public BusinessValidationException(IBusinessValidationRule validationRule, Object... params) {
         super(String.format(validationRule.getMessage(), params));
         this.validationRule = validationRule;
     }
-
 }

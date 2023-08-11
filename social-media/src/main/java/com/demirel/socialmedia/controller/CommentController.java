@@ -23,21 +23,16 @@ public class CommentController {
                                            @RequestParam(required = false) Long postId) {
         return commentService.getAllComments(userId, postId);
     }
-
     @PostMapping
     public CreateCommentRequest createComment(@RequestBody CreateCommentRequest createCommentRequest) {
         return commentService.createComment(createCommentRequest);
     }
-
     @PutMapping("/{commentId}")
     public UpdateCommentRequest updateComment(@PathVariable Long commentId, @RequestBody UpdateCommentRequest updateCommentRequest) {
         return commentService.updateComment(commentId, updateCommentRequest);
     }
-
-
     @GetMapping("/delete")
     public void deleteOneCommentById(Long commentId) {
         commentService.deleteById(commentId);
     }
-
 }

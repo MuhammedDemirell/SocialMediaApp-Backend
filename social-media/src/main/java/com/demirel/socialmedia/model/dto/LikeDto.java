@@ -17,5 +17,4 @@ public class LikeDto {
 
     private Long commentId;
 
-
 }

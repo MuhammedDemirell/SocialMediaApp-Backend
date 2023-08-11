@@ -1,6 +1,5 @@
 package com.demirel.socialmedia.model.request;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

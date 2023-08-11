@@ -1,15 +1,12 @@
 package com.demirel.socialmedia.model.dto;
 
-
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
+
 import java.util.Set;
 
 @Getter
@@ -32,6 +29,4 @@ public class PostDto {
     private Set<CommentDto> comments;
 
     private LocalDateTime createdDate;
-
-
 }

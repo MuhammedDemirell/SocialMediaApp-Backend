@@ -1,15 +1,12 @@
 package com.demirel.socialmedia.model.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
-
 import java.util.Objects;
 import java.util.Set;
 
 import static javax.persistence.CascadeType.REMOVE;
 import static javax.persistence.FetchType.EAGER;
-
 
 @Entity
 @Table(name = "users")

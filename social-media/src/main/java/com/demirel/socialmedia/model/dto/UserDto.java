@@ -1,8 +1,5 @@
 package com.demirel.socialmedia.model.dto;
 
-import com.demirel.socialmedia.model.entity.Comment;
-import com.demirel.socialmedia.model.entity.Like;
-import com.demirel.socialmedia.model.entity.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,5 +26,4 @@ public class UserDto {
     private Set<LikeDto> likes;
 
     private Set<CommentDto> comments;
-
 }

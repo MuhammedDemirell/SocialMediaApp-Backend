@@ -32,7 +32,6 @@ public class LikeService {
                                      Long postId,
                                      Long commentId) {
         List<Like> likes;
-
         if (userId != null && postId != null && commentId != null) {
             likes = likeRepository.findByUserIdAndPostIdAndCommentId(userId, postId, commentId);
             return likes.stream().map(likeMapper::toLikeDto).toList();
@@ -49,21 +48,17 @@ public class LikeService {
             likes = likeRepository.findAll();
             return likes.stream().map(likeMapper::toLikeDto).toList();
         }
-
-
     }
 
     public LikeDto getOneLikeById(Long likeId) {
         Like like = likeRepository.findById(likeId).orElseThrow(() -> new BusinessValidationException(BusinessValidationRule.LIKE_NOT_FOUND));
         return likeMapper.toLikeDto(like);
-
     }
 
     public CreateLikeRequest createLike(CreateLikeRequest createLikeRequest) {
         User user = userRepository.findById(createLikeRequest.getUserId()).orElseThrow();
         Post post = postRepository.findById(createLikeRequest.getPostId()).orElseThrow();
         Comment comment = commentRepository.findById(createLikeRequest.getCommentId()).orElseThrow();
-
         if (user != null && post != null && comment != null) {
             Like like = likeMapper.toLikeCreate(createLikeRequest);
             like.setId(createLikeRequest.getId());

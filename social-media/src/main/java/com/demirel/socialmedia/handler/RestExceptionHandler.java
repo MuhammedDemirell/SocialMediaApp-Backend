@@ -30,14 +30,11 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
-
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .message(errors.toString())
                 .build();
-
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
-
     @ExceptionHandler(value = {RuntimeException.class})
     public ResponseEntity<Object> handleRuntimeException(RuntimeException ex, WebRequest request) {
         HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
@@ -45,15 +42,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .message(ex.getMessage())
                 .build();
-
         if (ex instanceof BusinessValidationException businessException) {
             errorResponse.setCode(businessException.getValidationRule().getCode());
             httpStatus = businessException.getValidationRule().getHttpStatus();
         }
-
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), httpStatus, request);
     }
-
     @Getter
     @Setter
     @Builder
@@ -61,8 +55,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
         @Builder.Default
         private String code = DEFAULT_CODE;
-
         private String message;
-
     }
 }

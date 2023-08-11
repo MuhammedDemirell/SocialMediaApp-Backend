@@ -22,7 +22,6 @@ import java.util.List;
 public class CommentService {
 
     private final CommentRepository commentRepository;
-
     private final CommentMapper commentMapper;
     private final UserRepository userRepository;
     private final PostRepository postRepository;
@@ -30,33 +29,24 @@ public class CommentService {
     public List<CommentDto> getAllComments(Long userId,
                                            Long postId) {
         List<Comment> comments;
-
         if (userId != null && postId != null) {
             comments = commentRepository.findByUserIdAndPostId(userId, postId);
             return comments.stream().map(commentMapper::toCommentDto).toList();
-
         } else if (userId != null) {
             comments = commentRepository.findByUserId(userId);
             return comments.stream().map(commentMapper::toCommentDto).toList();
-
         } else if (postId != null) {
             comments = commentRepository.findByPostId(postId);
             return comments.stream().map(commentMapper::toCommentDto).toList();
-
         } else {
             comments = commentRepository.findAll();
             return comments.stream().map(commentMapper::toCommentDto).toList();
         }
-
     }
-
     public CreateCommentRequest createComment(CreateCommentRequest createCommentRequest) {
-
         User user = userRepository.findById(createCommentRequest.getUserId()).orElseThrow();
         Post post = postRepository.findById(createCommentRequest.getPostId()).orElseThrow();
-
-
-        if(user != null && post != null) {
+        if (user != null && post != null) {
             Comment comment = commentMapper.toCommentCreate(createCommentRequest);
             comment.setId(createCommentRequest.getId());
             comment.setPost(post);
@@ -64,27 +54,20 @@ public class CommentService {
             comment.setText(createCommentRequest.getText());
             commentRepository.save(comment);
             return createCommentRequest;
-        }else
+        } else
             throw new BusinessValidationException(BusinessValidationRule.USER_AND_POST_NOT_FOUND);
-        }
-
+    }
 
     public UpdateCommentRequest updateComment(Long commentId, UpdateCommentRequest updateCommentRequest) {
-
         Comment comment = commentRepository.findById(commentId).orElseThrow();
-
         if (comment != null) {
             comment.setText(updateCommentRequest.getText());
             commentMapper.toCommentUpdate(updateCommentRequest);
             commentRepository.save(comment);
-
-    }
+        }
         return updateCommentRequest;
     }
-
     public void deleteById(Long commentId) {
         commentRepository.deleteById(commentId);
     }
-
-
 }

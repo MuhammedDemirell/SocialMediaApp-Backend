@@ -2,7 +2,6 @@ package com.demirel.socialmedia.model.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-
 import static com.demirel.socialmedia.util.CommonConstants.EXCEPTION.DEFAULT_CODE;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
@@ -24,11 +23,9 @@ public enum BusinessValidationRule implements IBusinessValidationRule {
         this.code = code;
         this.message = message;
     }
-
     BusinessValidationRule(String code, String message, HttpStatus httpStatus) {
         this.code = code;
         this.message = message;
         this.httpStatus = httpStatus;
     }
-
 }

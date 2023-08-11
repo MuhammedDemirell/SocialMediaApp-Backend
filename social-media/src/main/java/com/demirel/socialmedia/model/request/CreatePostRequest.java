@@ -1,6 +1,5 @@
 package com.demirel.socialmedia.model.request;
 
-
 import lombok.*;
 
 @Data
