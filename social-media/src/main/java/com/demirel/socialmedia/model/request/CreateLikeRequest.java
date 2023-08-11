@@ -18,5 +18,4 @@ public class CreateLikeRequest {
     private Long commentId;
 
     private Long likeCount;
-
 }

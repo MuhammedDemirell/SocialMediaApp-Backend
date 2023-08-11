@@ -21,7 +21,6 @@ public class JwtUserDetails implements UserDetails {
     public String username;
     public String password;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

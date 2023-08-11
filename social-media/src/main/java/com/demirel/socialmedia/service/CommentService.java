@@ -43,6 +43,7 @@ public class CommentService {
             return comments.stream().map(commentMapper::toCommentDto).toList();
         }
     }
+
     public CreateCommentRequest createComment(CreateCommentRequest createCommentRequest) {
         User user = userRepository.findById(createCommentRequest.getUserId()).orElseThrow();
         Post post = postRepository.findById(createCommentRequest.getPostId()).orElseThrow();
@@ -67,6 +68,7 @@ public class CommentService {
         }
         return updateCommentRequest;
     }
+    
     public void deleteById(Long commentId) {
         commentRepository.deleteById(commentId);
     }

@@ -16,5 +16,4 @@ public class CreateCommentRequest {
     private Long postId;
 
     private String text;
-
 }

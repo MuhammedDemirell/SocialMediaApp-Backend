@@ -14,7 +14,7 @@ import static javax.persistence.FetchType.LAZY;
 @Getter
 @Setter
 public class Comment {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,7 +45,4 @@ public class Comment {
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
-
 }

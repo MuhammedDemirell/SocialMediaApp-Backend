@@ -21,18 +21,22 @@ public class UserController {
     public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
     }
+
     @PostMapping
     public ResponseEntity<CreateUserRequest> createUser(@RequestBody CreateUserRequest createUserRequest) {
         return userService.createUser(createUserRequest);
     }
+
     @GetMapping("/{userId}")
     public UserDto getUserById(@PathVariable Long userId) {
         return userService.getOneUser(userId);
     }
+
     @PutMapping("/{userId}")
     public UpdateUserRequest updateUser(@PathVariable Long userId, @RequestBody UpdateUserRequest updateUserRequest) {
         return userService.updateOneUser(userId, updateUserRequest);
     }
+    
     @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable Long userId) {
         userService.deleteById(userId);

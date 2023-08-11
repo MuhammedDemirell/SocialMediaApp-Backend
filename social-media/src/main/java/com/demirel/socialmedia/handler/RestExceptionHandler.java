@@ -35,6 +35,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 .build();
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
+
     @ExceptionHandler(value = {RuntimeException.class})
     public ResponseEntity<Object> handleRuntimeException(RuntimeException ex, WebRequest request) {
         HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
@@ -48,11 +49,11 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         }
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), httpStatus, request);
     }
+
     @Getter
     @Setter
     @Builder
     private static class ErrorResponse {
-
         @Builder.Default
         private String code = DEFAULT_CODE;
         private String message;

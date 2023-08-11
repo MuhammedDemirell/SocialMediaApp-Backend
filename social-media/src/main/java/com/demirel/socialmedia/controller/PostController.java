@@ -22,19 +22,22 @@ public class PostController {
     public List<PostDto> getAllPosts(@RequestParam Optional<Long> userId) {
         return postService.getAllPosts(userId);
     }
+
     @GetMapping("/{postId}")
     public PostDto getPostById(@PathVariable Long postId) {
         return postService.getOnePost(postId);
-
     }
+
     @PostMapping
     public CreatePostRequest createPost(@RequestBody CreatePostRequest createPostRequest) {
         return postService.createPost(createPostRequest);
     }
+
     @PutMapping("/{postId}")
     public UpdatePostRequest updatePost(@PathVariable Long postId, @RequestBody UpdatePostRequest updatePostRequest) {
         return postService.updatePost(postId, updatePostRequest);
     }
+    
     @DeleteMapping("/{postId}")
     public ResponseEntity<Void> deletePost(@PathVariable Long postId) {
         postService.deletePostById(postId);

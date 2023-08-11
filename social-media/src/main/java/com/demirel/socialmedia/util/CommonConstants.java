@@ -12,8 +12,4 @@ public class CommonConstants {
     public static final class EXCEPTION {
         public static final String DEFAULT_CODE = "SYSTEM";
     }
-
-
-
-
 }

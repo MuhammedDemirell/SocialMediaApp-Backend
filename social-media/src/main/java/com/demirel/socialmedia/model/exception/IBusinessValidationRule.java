@@ -9,5 +9,4 @@ public interface IBusinessValidationRule {
     String getMessage();
 
     HttpStatus getHttpStatus();
-
 }

@@ -20,14 +20,17 @@ public class LikeController {
                                      @RequestParam(required = false) Long commentId) {
         return likeService.getAllLikes(userId, postId, commentId);
     }
+
     @GetMapping("/{likeId}")
     public LikeDto getOneLike(@PathVariable Long likeId) {
         return likeService.getOneLikeById(likeId);
     }
+
     @PostMapping
     public CreateLikeRequest createLike(@RequestBody CreateLikeRequest createLikeRequest) {
         return likeService.createLike(createLikeRequest);
     }
+    
     @DeleteMapping("/{likeId}")
     public void deleteLikeById(@PathVariable Long likeId) {
         likeService.deleteLikeById(likeId);

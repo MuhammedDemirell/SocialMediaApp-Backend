@@ -38,11 +38,9 @@ public class Like {
         Like like = (Like) o;
         return Objects.equals(id, like.id);
     }
-
+    
     @Override
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
 }
