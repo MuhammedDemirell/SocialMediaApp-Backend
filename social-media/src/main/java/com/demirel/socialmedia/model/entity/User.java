@@ -35,6 +35,7 @@ public class User {
 
     @Column(nullable = false)
     private int avatar;
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
