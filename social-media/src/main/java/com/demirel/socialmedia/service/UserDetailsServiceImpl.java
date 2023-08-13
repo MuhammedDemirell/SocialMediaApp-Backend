@@ -1,19 +1,27 @@
 package com.demirel.socialmedia.service;
 
-
 import com.demirel.socialmedia.model.entity.User;
 import com.demirel.socialmedia.repository.UserRepository;
 import com.demirel.socialmedia.security.JwtUserDetails;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
-@Service
-public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
-    private final UserRepository userRepository;
+
+@Service
+@RequiredArgsConstructor
+public class UserDetailsServiceImpl implements UserDetailsService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -22,7 +30,8 @@ public class UserDetailsService implements org.springframework.security.core.use
     }
 
     public UserDetails loadUserById(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User not found with id : " + id));
+        User user = userRepository.findById(id).get();
         return JwtUserDetails.create(user);
     }
+
 }

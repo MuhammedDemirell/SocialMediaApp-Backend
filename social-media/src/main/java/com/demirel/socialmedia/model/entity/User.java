@@ -18,10 +18,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 25, nullable = false)
     private String userName;
 
-    @Column(length = 25, nullable = false)
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = REMOVE, fetch = EAGER)
