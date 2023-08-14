@@ -1,6 +1,8 @@
 package com.demirel.socialmedia.security;
 
+import com.demirel.socialmedia.repository.UserRepository;
 import io.jsonwebtoken.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
+@RequiredArgsConstructor
 public class JwtTokenProvider {
 
     @Value("${social-media.app.secret}")
@@ -16,11 +19,14 @@ public class JwtTokenProvider {
     @Value("${social-media.app.expiration}")
     private long EXPIRATION_TIME;
 
-    public String generateToken(Authentication authenticationManager){
-        JwtUserDetails jwtUserDetails = (JwtUserDetails) authenticationManager.getPrincipal();
+    private final UserRepository userRepository;
+
+    public String generateToken(String userName){
+
+
         Date expiryDate = new Date(new Date().getTime() + EXPIRATION_TIME);
         return Jwts.builder()
-                .setSubject(Long.toString(jwtUserDetails.getId()))
+                .setSubject(Long.toString(userRepository.findByUserName(userName).getId()))
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, APP_SECRET)
