@@ -1,7 +1,6 @@
 package com.demirel.socialmedia.controller;
 
 import com.demirel.socialmedia.model.entity.User;
-import com.demirel.socialmedia.model.mapper.UserMapper;
 import com.demirel.socialmedia.model.request.UserRequest;
 import com.demirel.socialmedia.repository.UserRepository;
 import com.demirel.socialmedia.security.JwtTokenProvider;
@@ -11,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
