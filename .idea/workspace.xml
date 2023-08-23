@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aee3017a-af35-47ad-a43a-5c234d079c68" name="Changes" comment="jwt token update">
+    <list default="true" id="aee3017a-af35-47ad-a43a-5c234d079c68" name="Changes" comment="workspace.xml update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-media/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/social-media/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/SocialMediaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/SocialMediaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/PC/Desktop/SocialMediaApp-Backend"
+    "last_opened_file_path": "C:/Users/PC/Desktop/microservice/product-service"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -45,66 +47,16 @@
       <recent name="com.demirel.socialmedia.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PostControllerTest.itShouldUpdatePost_WhenGivenPostIdAndRequestBody">
-    <configuration name="PostControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserControllerTest.createUser">
+    <configuration name="SocialMediaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.SocialMediaApplication" />
       <module name="socialMediaApp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.demirel.socialmedia.controller.*" />
+          <option name="PATTERN" value="com.demirel.socialmedia.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.demirel.socialmedia.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.controller.PostControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostControllerTest.createPost_shouldCreatePost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="socialMediaApp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.demirel.socialmedia.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.demirel.socialmedia.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.controller.PostControllerTest" />
-      <option name="METHOD_NAME" value="createPost_shouldCreatePost" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostControllerTest.getPostById_shouldReturnPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="socialMediaApp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.demirel.socialmedia.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.demirel.socialmedia.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.controller.PostControllerTest" />
-      <option name="METHOD_NAME" value="getPostById_shouldReturnPost" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostControllerTest.itShouldGetAllPosts_WhenGivenPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="socialMediaApp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.demirel.socialmedia.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.demirel.socialmedia.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.controller.PostControllerTest" />
-      <option name="METHOD_NAME" value="itShouldGetAllPosts_WhenGivenPost" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,13 +77,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="socialMediaApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demirel.socialmedia.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demirel.socialmedia.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.createUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="socialMediaApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demirel.socialmedia.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demirel.socialmedia.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="createUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.getAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="socialMediaApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demirel.socialmedia.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.demirel.socialmedia.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.demirel.socialmedia.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="getAllUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest.createUser" />
+        <item itemvalue="JUnit.UserControllerTest.getAllUsers" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="Application.SocialMediaApplication" />
         <item itemvalue="JUnit.PostControllerTest.itShouldUpdatePost_WhenGivenPostIdAndRequestBody" />
-        <item itemvalue="JUnit.PostControllerTest.itShouldGetAllPosts_WhenGivenPost" />
-        <item itemvalue="JUnit.PostControllerTest.getPostById_shouldReturnPost" />
-        <item itemvalue="JUnit.PostControllerTest.createPost_shouldCreatePost" />
-        <item itemvalue="JUnit.PostControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -171,11 +170,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/controller/AuthController.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/social-media/src/main/java/com/demirel/socialmedia/security/JwtTokenProvider.java</url>
           <line>26</line>

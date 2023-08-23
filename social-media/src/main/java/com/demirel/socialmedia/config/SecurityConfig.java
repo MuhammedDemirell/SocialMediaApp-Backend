@@ -68,21 +68,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .cors()
-                .and()
+                .cors().and()
                 .csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(handler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/posts")
-                .permitAll()
-                .antMatchers(HttpMethod.GET, "/comments")
-                .permitAll()
-                .antMatchers("/auth/**")
-                .permitAll()
-                .anyRequest().authenticated();
+                .authorizeRequests(authorizeRequests ->
+                        authorizeRequests
+                                .antMatchers(HttpMethod.GET, "/posts").permitAll()
+                                .antMatchers(HttpMethod.GET, "/comments").permitAll()
+                                .antMatchers("/auth/**").permitAll()
+                                .antMatchers("/swagger-ui/**", "/swagger-resources/**", "/v3/api-docs/**").permitAll()
+                                .anyRequest().authenticated()
+                );
 
         httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
+
 }
